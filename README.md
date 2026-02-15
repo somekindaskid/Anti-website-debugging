@@ -30,7 +30,7 @@ late night project/
 ## File-by-file
 
 ### `privacy crash.html`
-`https://somekindaskid.github.io/Anti-website-debugging/privacy privacy crash.html`
+`https://somekindaskid.github.io/Anti-website-debugging/privacy crash.html`
 **Purpose:** As soon as you leave the page (switch tab or click outside the window), it **navigates** to `poc.html`. No overlay, no going back—the tab leaves the original page.
 
 **How it works:**
