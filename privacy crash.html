@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval';">
+<title>Privacy POC</title>
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #1a1a2e;
+  color: #e2e8f0;
+  font-family: system-ui, sans-serif;
+}
+
+#main {
+  padding: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+}
+
+#privacy-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+#privacy-overlay.visible {
+  display: flex;
+}
+
+#privacy-overlay .text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: 0.05em;
+}
+</style>
+</head>
+<body>
+
+<div id="main">
+  <h1>Privacy POC</h1>
+  <p>Switch to another tab or click outside the window — the screen will go black and the tab title will change to TABBED OUT.</p>
+</div>
+
+<div id="privacy-overlay">
+  <span class="text">PRIVACY ACTIVATED</span>
+</div>
+
+<script>
+(function() {
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      window.location.href = 'poc.html';
+    }
+  });
+
+  window.addEventListener('blur', function() {
+    window.location.href = 'poc.html';
+  });
+})();
+</script>
+
+</body>
+</html>
